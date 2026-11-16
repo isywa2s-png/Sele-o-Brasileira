@@ -1,0 +1,509 @@
+
+/* =========================================================
+   BRASIL — ANIMAÇÕES E EFEITOS
+   Arquivo: CSS/animacoes.css
+   ========================================================= */
+
+/* ---------- CONFIGURAÇÕES GERAIS ---------- */
+
+:root {
+    --animation-fast: 0.18s ease;
+    --animation-normal: 0.3s ease;
+    --animation-smooth: 0.45s ease;
+}
+
+/* Rolagem suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Elementos com transições */
+button,
+a,
+input,
+select,
+textarea,
+.player-card,
+.trophy-card,
+.stat-card,
+.nav-item,
+.menu-toggle,
+.more-menu,
+.modal,
+.sidebar {
+    transition:
+        background-color var(--animation-normal),
+        color var(--animation-normal),
+        border-color var(--animation-normal),
+        box-shadow var(--animation-normal),
+        transform var(--animation-normal),
+        opacity var(--animation-normal);
+}
+
+/* ---------- ANIMAÇÕES DE ENTRADA ---------- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Classes reutilizáveis */
+.animate-fade {
+    animation: fadeIn 0.45s ease both;
+}
+
+.animate-up {
+    animation: fadeInUp 0.45s ease both;
+}
+
+.animate-down {
+    animation: fadeInDown 0.4s ease both;
+}
+
+.animate-left {
+    animation: fadeInLeft 0.4s ease both;
+}
+
+.animate-right {
+    animation: fadeInRight 0.4s ease both;
+}
+
+.animate-scale {
+    animation: scaleIn 0.35s ease both;
+}
+
+/* ---------- EFEITOS DOS CARDS ---------- */
+
+.player-card,
+.trophy-card,
+.stat-card {
+    position: relative;
+    will-change: transform;
+}
+
+.player-card:hover,
+.trophy-card:hover,
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Brilho discreto nos cards */
+.player-card::after,
+.trophy-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--animation-normal);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.08),
+        transparent 55%
+    );
+}
+
+.player-card:hover::after,
+.trophy-card:hover::after {
+    opacity: 1;
+}
+
+/* ---------- BOTÕES ---------- */
+
+button,
+.btn,
+.button {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+    filter: brightness(1.06);
+}
+
+button:active,
+.btn:active,
+.button:active {
+    transform: scale(0.97);
+}
+
+/* Efeito de brilho ao passar o mouse */
+.btn-primary::before,
+.button-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::before,
+.button-primary:hover::before {
+    left: 150%;
+}
+
+/* ---------- BOTÃO CONVOCAR ---------- */
+
+.convocar-btn,
+.btn-convocar {
+    transition:
+        transform var(--animation-fast),
+        background-color var(--animation-normal),
+        box-shadow var(--animation-normal);
+}
+
+.convocar-btn:hover,
+.btn-convocar:hover {
+    transform: translateY(-2px);
+}
+
+.convocar-btn:active,
+.btn-convocar:active {
+    transform: scale(0.96);
+}
+
+/* Estado de convocado */
+.convocar-btn.active,
+.btn-convocar.active,
+.convocar-btn.convocado,
+.btn-convocar.convocado {
+    animation: scaleIn 0.25s ease both;
+}
+
+/* ---------- MENU LATERAL ---------- */
+
+.sidebar {
+    transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity var(--animation-normal);
+}
+
+.sidebar.open {
+    animation: fadeInLeft 0.3s ease both;
+}
+
+.nav-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item:hover {
+    transform: translateX(3px);
+}
+
+.nav-item.active {
+    animation: fadeIn 0.25s ease both;
+}
+
+/* ---------- MENU DE TRÊS PONTINHOS ---------- */
+
+.more-menu {
+    transform-origin: top right;
+}
+
+.more-menu.show,
+.more-menu.active,
+.topbar-more.open .more-menu {
+    animation: menuOpen 0.22s ease both;
+}
+
+@keyframes menuOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-7px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---------- MODAIS ---------- */
+
+.modal {
+    animation: fadeIn 0.22s ease both;
+}
+
+.modal-content,
+.modal-box,
+.modal-dialog {
+    animation: modalOpen 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---------- TROFÉUS ---------- */
+
+.trophy-card img {
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+.trophy-card:hover img {
+    transform: scale(1.06);
+    filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.16));
+}
+
+/* ---------- ESTATÍSTICAS ---------- */
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-value,
+.stat-number {
+    animation: countUp 0.5s ease both;
+}
+
+/* ---------- DESTAQUE DA SELEÇÃO ---------- */
+
+@keyframes subtleGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(255, 213, 0, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 18px rgba(255, 213, 0, 0.16);
+    }
+}
+
+.welcome-banner {
+    animation: fadeInUp 0.55s ease both;
+}
+
+/* ---------- CARREGAMENTO ---------- */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.45;
+    }
+}
+
+@keyframes skeleton {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.loading-spinner {
+    animation: spin 0.8s linear infinite;
+}
+
+.loading,
+.skeleton {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(128, 128, 128, 0.08) 25%,
+        rgba(128, 128, 128, 0.18) 50%,
+        rgba(128, 128, 128, 0.08) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton 1.5s ease infinite;
+}
+
+/* ---------- ALERTAS E NOTIFICAÇÕES ---------- */
+
+@keyframes notificationIn {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.notification,
+.toast,
+.alert {
+    animation: notificationIn 0.35s ease both;
+}
+
+/* ---------- IMAGENS E AVATARES ---------- */
+
+.player-avatar,
+.player-card img {
+    transition:
+        transform var(--animation-normal),
+        filter var(--animation-normal);
+}
+
+.player-card:hover .player-avatar,
+.player-card:hover img {
+    filter: brightness(1.04);
+}
+
+/* ---------- CAMPOS DE FORMULÁRIO ---------- */
+
+input:focus,
+select:focus,
+textarea:focus {
+    transition:
+        border-color var(--animation-normal),
+        box-shadow var(--animation-normal),
+        background-color var(--animation-normal);
+}
+
+/* ---------- TABELAS ---------- */
+
+tbody tr {
+    transition: background-color var(--animation-fast);
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 150, 70, 0.055);
+}
+
+/* ---------- RESPONSIVIDADE DAS ANIMAÇÕES ---------- */
+
+@media (max-width: 768px) {
+    .player-card:hover,
+    .trophy-card:hover,
+    .stat-card:hover {
+        transform: none;
+    }
+
+    button:hover,
+    .btn:hover,
+    .button:hover {
+        filter: none;
+    }
+
+    .player-card:hover::after,
+    .trophy-card:hover::after {
+        opacity: 0;
+    }
+}
+
+/* ---------- ACESSIBILIDADE ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

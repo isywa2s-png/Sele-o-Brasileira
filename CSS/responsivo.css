@@ -1,0 +1,1522 @@
+
+/* =========================================================
+   BRASIL — SELEÇÃO BRASILEIRA
+   RESPONSIVO.CSS
+========================================================= */
+
+/* =========================
+   01. TELAS GRANDES
+   1600px+
+========================= */
+
+@media (min-width: 1600px) {
+
+    .page-container {
+        padding: 42px 50px 55px;
+    }
+
+    .topbar {
+        padding: 0 50px;
+    }
+
+    .welcome-banner {
+        min-height: 275px;
+    }
+
+    .welcome-image {
+        width: 220px;
+        height: 220px;
+    }
+
+    .stats-grid {
+        gap: 20px;
+    }
+
+    .players-grid,
+    .trophies-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================
+   02. NOTEBOOKS
+   1200px ATÉ 1399px
+========================= */
+
+@media (max-width: 1399px) {
+
+    :root {
+        --sidebar-width: 235px;
+    }
+
+    .page-container {
+        padding: 30px 28px 40px;
+    }
+
+    .topbar {
+        padding: 0 28px;
+    }
+
+    .stats-grid {
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 15px;
+        gap: 11px;
+    }
+
+    .stat-icon {
+        width: 41px;
+        height: 41px;
+    }
+
+    .stat-info h3 {
+        font-size: 23px;
+    }
+
+    .players-grid,
+    .trophies-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================
+   03. NOTEBOOKS MENORES
+   992px ATÉ 1199px
+========================= */
+
+@media (max-width: 1199px) {
+
+    :root {
+        --sidebar-width: 220px;
+    }
+
+    .page-container {
+        padding: 27px 22px 35px;
+    }
+
+    .topbar {
+        padding: 0 22px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-trophies {
+        min-height: 200px;
+    }
+
+    .players-grid,
+    .trophies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ranking-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ranking-card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .welcome-image {
+        width: 155px;
+        height: 155px;
+        margin-right: 15px;
+    }
+
+    .welcome-content h1 {
+        font-size: 34px;
+    }
+
+}
+
+
+/* =========================
+   04. TABLETS
+   768px ATÉ 991px
+========================= */
+
+@media (max-width: 991px) {
+
+    :root {
+        --sidebar-width: 250px;
+        --topbar-height: 68px;
+    }
+
+    .sidebar {
+        z-index: 250;
+        transform: translateX(-105%);
+        transition: transform 0.3s ease;
+        box-shadow: none;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+        box-shadow: 15px 0 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .sidebar-close {
+        display: flex;
+        width: 32px;
+        height: 32px;
+        margin-left: auto;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-secondary);
+        font-size: 15px;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(3px);
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        font-size: 16px;
+        transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+        background: var(--surface-hover);
+        color: var(--green-light);
+    }
+
+    .topbar {
+        padding: 0 25px;
+    }
+
+    .page-container {
+        padding: 27px 25px 35px;
+    }
+
+    .welcome-banner {
+        min-height: 215px;
+    }
+
+    .welcome-image {
+        width: 135px;
+        height: 135px;
+        margin-right: 5px;
+    }
+
+    .welcome-content h1 {
+        font-size: 31px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .players-grid,
+    .trophies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ranking-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ranking-card:last-child {
+        grid-column: auto;
+    }
+
+    .footer {
+        padding: 16px 25px;
+    }
+
+}
+
+
+/* =========================
+   05. TABLETS MENORES
+   576px ATÉ 767px
+========================= */
+
+@media (max-width: 767px) {
+
+    :root {
+        --topbar-height: 64px;
+    }
+
+    .topbar {
+        padding: 0 17px;
+    }
+
+    .page-container {
+        padding: 23px 17px 30px;
+    }
+
+    .breadcrumb {
+        gap: 8px;
+        font-size: 10px;
+    }
+
+    .topbar-left,
+    .topbar-right {
+        gap: 11px;
+    }
+
+    .welcome-banner {
+        min-height: 195px;
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+
+    .welcome-content h1 {
+        font-size: 28px;
+    }
+
+    .welcome-content > p {
+        max-width: 330px;
+        font-size: 11px;
+    }
+
+    .welcome-image {
+        width: 110px;
+        height: 110px;
+        margin-right: 0;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+    }
+
+    .stats-grid {
+        gap: 11px;
+    }
+
+    .stat-card {
+        min-height: 100px;
+        padding: 14px;
+    }
+
+    .stat-icon {
+        width: 37px;
+        height: 37px;
+        font-size: 14px;
+    }
+
+    .stat-info > span {
+        font-size: 9px;
+    }
+
+    .stat-info h3 {
+        font-size: 22px;
+    }
+
+    .content-card {
+        padding: 18px;
+    }
+
+    .filter-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .search-box {
+        flex-basis: 100%;
+    }
+
+    .filter-select {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .roster-summary {
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .players-grid,
+    .trophies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .called-banner {
+        min-height: 150px;
+        padding: 23px;
+    }
+
+    .called-banner h1 {
+        font-size: 25px;
+    }
+
+    .called-number strong {
+        font-size: 39px;
+    }
+
+    .called-summary-card {
+        padding: 13px;
+        gap: 9px;
+    }
+
+    .called-summary-card > i {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    .called-summary-card span {
+        font-size: 9px;
+    }
+
+    .called-summary-card strong {
+        font-size: 17px;
+    }
+
+    .statistics-overview {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .trophy-banner {
+        min-height: 180px;
+        padding: 24px;
+    }
+
+    .trophy-banner h1 {
+        font-size: 25px;
+    }
+
+    .trophy-banner-decoration {
+        width: 110px;
+        height: 110px;
+    }
+
+    .trophy-banner-decoration i {
+        font-size: 47px;
+    }
+
+    .president-card {
+        padding: 25px;
+        gap: 17px;
+    }
+
+    .president-symbol {
+        width: 65px;
+        height: 65px;
+        font-size: 27px;
+    }
+
+    .president-info h2 {
+        font-size: 23px;
+    }
+
+    .president-flag {
+        width: 75px;
+        height: 75px;
+    }
+
+    .admin-actions-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer {
+        padding: 15px 17px;
+    }
+
+}
+
+
+/* =========================
+   06. CELULARES
+   ATÉ 575px
+========================= */
+
+@media (max-width: 575px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .app-container,
+    .main-content {
+        width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+    }
+
+    /* TOPBAR */
+
+    :root {
+        --topbar-height: 60px;
+    }
+
+    .topbar {
+        height: 60px;
+        min-height: 60px;
+        padding: 0 13px;
+    }
+
+    .topbar-left,
+    .topbar-right {
+        gap: 9px;
+    }
+
+    .menu-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    .breadcrumb {
+        gap: 7px;
+        font-size: 9px;
+    }
+
+    .breadcrumb i {
+        font-size: 8px;
+    }
+
+    .live-indicator {
+        gap: 5px;
+        font-size: 8px;
+    }
+
+    .topbar-divider {
+        height: 20px;
+    }
+
+    .topbar-brand {
+        width: 31px;
+        height: 31px;
+        padding: 3px;
+    }
+
+    .topbar-more {
+        width: 32px;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    .more-menu {
+        position: fixed;
+        top: 55px;
+        right: 10px;
+        width: min(220px, calc(100vw - 20px));
+        z-index: 350;
+    }
+
+    /* CONTEÚDO */
+
+    .page-container {
+        width: 100%;
+        padding: 19px 13px 27px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 19px;
+    }
+
+    .section-heading h2 {
+        font-size: 19px;
+        letter-spacing: -0.5px;
+    }
+
+    .section-heading p {
+        max-width: 290px;
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    .section-eyebrow {
+        font-size: 8px;
+    }
+
+    .page-heading {
+        margin-top: 5px;
+        margin-bottom: 19px;
+    }
+
+    .heading-actions {
+        width: auto;
+    }
+
+    /* BOTÕES */
+
+    .primary-button,
+    .secondary-button,
+    .danger-button {
+        min-height: 39px;
+        padding: 0 11px;
+        gap: 7px;
+        font-size: 9px;
+    }
+
+    .heading-actions .primary-button {
+        max-width: 145px;
+        white-space: normal;
+        line-height: 1.3;
+    }
+
+    /* BANNER PRINCIPAL */
+
+    .welcome-banner {
+        min-height: 190px;
+        padding: 21px 17px;
+        margin-bottom: 29px;
+        border-radius: 16px;
+    }
+
+    .welcome-content {
+        max-width: 100%;
+    }
+
+    .welcome-tag {
+        padding: 6px 8px;
+        font-size: 7px;
+    }
+
+    .welcome-content h1 {
+        max-width: 230px;
+        margin-top: 15px;
+        font-size: 25px;
+        letter-spacing: -1px;
+    }
+
+    .welcome-content > p {
+        max-width: 230px;
+        margin-top: 9px;
+        font-size: 9px;
+        line-height: 1.6;
+    }
+
+    .welcome-president {
+        flex-wrap: wrap;
+        margin-top: 14px;
+        font-size: 8px;
+    }
+
+    .welcome-image {
+        position: absolute;
+        right: 9px;
+        bottom: 15px;
+        width: 91px;
+        height: 91px;
+        opacity: 0.92;
+    }
+
+    .banner-decoration {
+        width: 230px;
+        height: 230px;
+        top: -90px;
+        right: -100px;
+    }
+
+    /* CARDS DE ESTATÍSTICAS */
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin-bottom: 23px;
+    }
+
+    .stat-card {
+        min-height: 92px;
+        padding: 11px 9px;
+        gap: 9px;
+        border-radius: 11px;
+    }
+
+    .stat-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        font-size: 13px;
+    }
+
+    .stat-info {
+        min-width: 0;
+    }
+
+    .stat-info > span {
+        font-size: 8px;
+        line-height: 1.4;
+    }
+
+    .stat-info h3 {
+        margin-top: 4px;
+        font-size: 21px;
+    }
+
+    .stat-info small {
+        font-size: 8px;
+    }
+
+    /* CARDS */
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .content-card {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .card-header {
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .card-header h3 {
+        font-size: 12px;
+    }
+
+    .card-header p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    .text-button {
+        padding: 6px 2px;
+        font-size: 8px;
+    }
+
+    .dashboard-player-item {
+        gap: 9px;
+    }
+
+    .player-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+    }
+
+    .dashboard-player-info strong {
+        font-size: 10px;
+    }
+
+    .dashboard-player-info span {
+        font-size: 8px;
+    }
+
+    .called-status {
+        padding: 5px 7px;
+        font-size: 7px;
+    }
+
+    .last-update-card {
+        padding: 12px;
+        gap: 9px;
+        flex-wrap: wrap;
+    }
+
+    .last-update-icon {
+        width: 33px;
+        height: 33px;
+    }
+
+    .last-update-card strong {
+        font-size: 9px;
+    }
+
+    .last-update-card p {
+        font-size: 8px;
+    }
+
+    .sync-badge {
+        font-size: 7px;
+    }
+
+    /* JOGADORES */
+
+    .filter-toolbar {
+        gap: 8px;
+    }
+
+    .search-box {
+        min-width: 0;
+        height: 41px;
+    }
+
+    .filter-select {
+        width: 100%;
+        flex-basis: 100%;
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .roster-summary {
+        padding: 13px 11px;
+        gap: 8px;
+    }
+
+    .roster-summary span {
+        font-size: 8px;
+        line-height: 1.4;
+    }
+
+    .roster-summary strong {
+        font-size: 15px;
+    }
+
+    .players-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .player-card {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .player-card .player-avatar {
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+    }
+
+    .player-number {
+        font-size: 18px;
+    }
+
+    .player-card h3 {
+        margin-top: 12px;
+        font-size: 11px;
+    }
+
+    .player-position {
+        font-size: 8px;
+        padding: 5px 6px;
+    }
+
+    .player-card-stats {
+        gap: 2px;
+        margin-top: 13px;
+        padding-top: 11px;
+    }
+
+    .player-card-stats strong {
+        font-size: 12px;
+    }
+
+    .player-card-stats span {
+        font-size: 7px;
+    }
+
+    .player-card-actions {
+        gap: 5px;
+        margin-top: 12px;
+    }
+
+    .call-button {
+        min-height: 33px;
+        padding: 0 5px;
+        gap: 5px;
+        font-size: 8px;
+    }
+
+    .edit-button,
+    .delete-button {
+        width: 32px;
+        min-height: 33px;
+        font-size: 10px;
+    }
+
+    /* CONVOCADOS */
+
+    .called-banner {
+        min-height: 130px;
+        padding: 17px;
+        margin-bottom: 24px;
+        border-radius: 14px;
+    }
+
+    .called-banner h1 {
+        margin-top: 8px;
+        font-size: 22px;
+    }
+
+    .called-banner p {
+        max-width: 205px;
+        font-size: 9px;
+        line-height: 1.6;
+    }
+
+    .called-number {
+        min-width: 65px;
+    }
+
+    .called-number strong {
+        font-size: 34px;
+    }
+
+    .called-number span {
+        font-size: 7px;
+    }
+
+    .called-summary-grid {
+        gap: 7px;
+        margin-bottom: 17px;
+    }
+
+    .called-summary-card {
+        min-width: 0;
+        padding: 11px 7px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+    }
+
+    .called-summary-card > i {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+    }
+
+    .called-summary-card span {
+        font-size: 8px;
+        line-height: 1.3;
+    }
+
+    .called-summary-card strong {
+        font-size: 17px;
+    }
+
+    /* TABELAS */
+
+    .table-card {
+        padding: 16px 0 5px;
+    }
+
+    .table-card .card-header {
+        padding: 0 15px;
+    }
+
+    .data-table {
+        min-width: 650px;
+    }
+
+    .data-table th {
+        padding: 12px;
+        font-size: 8px;
+    }
+
+    .data-table td {
+        padding: 12px;
+        font-size: 9px;
+    }
+
+    /* ESTATÍSTICAS */
+
+    .statistics-overview {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        margin-top: 20px;
+    }
+
+    .statistics-overview .stat-card {
+        min-height: 77px;
+    }
+
+    .ranking-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .ranking-card:last-child {
+        grid-column: auto;
+    }
+
+    .ranking-card {
+        padding: 13px;
+    }
+
+    /* TROFÉUS */
+
+    .trophy-banner {
+        min-height: 165px;
+        padding: 19px 16px;
+        margin-bottom: 24px;
+        border-radius: 14px;
+    }
+
+    .trophy-banner h1 {
+        font-size: 21px;
+        letter-spacing: -0.7px;
+    }
+
+    .trophy-banner p {
+        max-width: 220px;
+        font-size: 9px;
+        line-height: 1.7;
+    }
+
+    .trophy-banner-decoration {
+        width: 76px;
+        height: 76px;
+        flex-shrink: 0;
+    }
+
+    .trophy-banner-decoration i {
+        font-size: 34px;
+    }
+
+    .trophy-summary {
+        gap: 8px;
+        margin-bottom: 17px;
+    }
+
+    .trophy-summary > div {
+        min-width: 0;
+        min-height: 76px;
+        padding: 11px;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .trophy-summary i {
+        font-size: 15px;
+    }
+
+    .trophy-summary span {
+        font-size: 8px;
+        line-height: 1.4;
+    }
+
+    .trophy-summary strong {
+        font-size: 18px;
+    }
+
+    .trophies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .trophy-card {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .trophy-image {
+        width: 57px;
+        height: 57px;
+        padding: 5px;
+    }
+
+    .trophy-placeholder {
+        font-size: 25px;
+    }
+
+    .trophy-quantity {
+        padding: 6px;
+        font-size: 8px;
+    }
+
+    .trophy-card h3 {
+        margin-top: 12px;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .trophy-card > p {
+        font-size: 8px;
+        line-height: 1.5;
+    }
+
+    .trophy-seasons {
+        gap: 4px;
+        margin-top: 10px;
+    }
+
+    .season-tag {
+        padding: 5px 6px;
+        font-size: 8px;
+    }
+
+    .trophy-admin-actions {
+        gap: 5px;
+        margin-top: 12px;
+        padding-top: 10px;
+    }
+
+    /* PRESIDÊNCIA */
+
+    .president-card {
+        min-height: 170px;
+        padding: 17px;
+        gap: 11px;
+        border-radius: 14px;
+    }
+
+    .president-symbol {
+        width: 48px;
+        height: 48px;
+        border-radius: 13px;
+        font-size: 20px;
+    }
+
+    .president-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .president-info > span {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .president-info h2 {
+        margin-top: 7px;
+        font-size: 19px;
+        overflow-wrap: anywhere;
+    }
+
+    .president-info p {
+        font-size: 8px;
+        line-height: 1.6;
+    }
+
+    .president-status {
+        margin-top: 11px;
+        font-size: 8px;
+    }
+
+    .president-flag {
+        width: 48px;
+        height: 48px;
+    }
+
+    .leadership-item {
+        gap: 9px;
+    }
+
+    .leadership-tag {
+        padding: 6px;
+        font-size: 7px !important;
+    }
+
+    /* ADMINISTRAÇÃO */
+
+    .admin-session-badge {
+        padding: 7px;
+        font-size: 7px;
+        white-space: nowrap;
+    }
+
+    .admin-locked {
+        padding: 35px 15px;
+    }
+
+    .admin-locked h3 {
+        font-size: 14px;
+    }
+
+    .admin-locked p {
+        font-size: 9px;
+    }
+
+    .admin-welcome-card {
+        padding: 16px;
+        align-items: flex-start;
+    }
+
+    .admin-welcome-card h3 {
+        font-size: 14px;
+    }
+
+    .admin-welcome-card p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    .admin-actions-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .admin-action-card {
+        padding: 14px;
+    }
+
+    .admin-action-card > i {
+        font-size: 18px;
+        margin-bottom: 11px;
+    }
+
+    .admin-action-card strong {
+        font-size: 10px;
+    }
+
+    .admin-action-card span {
+        font-size: 8px;
+    }
+
+    .admin-player-row,
+    .admin-trophy-row {
+        gap: 8px;
+    }
+
+    .admin-player-row strong,
+    .admin-trophy-row strong {
+        font-size: 9px;
+    }
+
+    /* MODAIS */
+
+    .modal-overlay {
+        padding: 12px;
+        align-items: center;
+    }
+
+    .modal {
+        max-width: 100%;
+        max-height: calc(100dvh - 24px);
+        padding: 19px;
+        border-radius: 15px;
+    }
+
+    .modal-header {
+        margin-bottom: 19px;
+    }
+
+    .modal-header h3 {
+        font-size: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 14px;
+    }
+
+    .form-group label {
+        font-size: 9px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        min-height: 43px;
+        padding: 0 11px;
+        font-size: 16px;
+    }
+
+    .form-group input[type="file"] {
+        font-size: 11px;
+    }
+
+    .form-row {
+        gap: 8px;
+    }
+
+    .modal-actions {
+        gap: 7px;
+        flex-wrap: wrap;
+    }
+
+    .modal-actions button {
+        flex: 1;
+    }
+
+    .admin-modal {
+        max-width: 100%;
+    }
+
+    .admin-security-note {
+        font-size: 8px;
+    }
+
+    .confirm-modal {
+        max-width: 100%;
+    }
+
+    /* NOTIFICAÇÕES */
+
+    .toast-container {
+        right: 10px;
+        bottom: 12px;
+        width: calc(100% - 20px);
+    }
+
+    .toast {
+        min-height: 49px;
+        padding: 11px;
+    }
+
+    /* RODAPÉ */
+
+    .footer {
+        padding: 14px 13px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .footer-left img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .footer-left strong {
+        font-size: 8px;
+    }
+
+    .footer-left span {
+        font-size: 8px;
+    }
+
+    .footer-right {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 8px;
+    }
+
+}
+
+
+/* =========================
+   07. CELULARES PEQUENOS
+   ATÉ 380px
+========================= */
+
+@media (max-width: 380px) {
+
+    .page-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .topbar {
+        padding: 0 9px;
+    }
+
+    .breadcrumb {
+        font-size: 8px;
+        gap: 5px;
+    }
+
+    .topbar-left,
+    .topbar-right {
+        gap: 6px;
+    }
+
+    .live-indicator {
+        font-size: 7px;
+    }
+
+    .welcome-banner {
+        padding: 17px 13px;
+    }
+
+    .welcome-content h1 {
+        max-width: 195px;
+        font-size: 22px;
+    }
+
+    .welcome-content > p {
+        max-width: 185px;
+        font-size: 8px;
+    }
+
+    .welcome-image {
+        width: 75px;
+        height: 75px;
+    }
+
+    .stat-card {
+        padding: 9px 7px;
+        gap: 7px;
+    }
+
+    .stat-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 11px;
+    }
+
+    .stat-info > span {
+        font-size: 7px;
+    }
+
+    .stat-info h3 {
+        font-size: 19px;
+    }
+
+    .players-grid,
+    .trophies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .player-card {
+        padding: 9px;
+    }
+
+    .player-card h3 {
+        font-size: 10px;
+    }
+
+    .player-card-stats strong {
+        font-size: 11px;
+    }
+
+    .call-button {
+        font-size: 7px;
+    }
+
+    .called-banner {
+        padding: 14px;
+    }
+
+    .called-banner h1 {
+        font-size: 19px;
+    }
+
+    .called-number strong {
+        font-size: 29px;
+    }
+
+    .trophy-banner-decoration {
+        width: 62px;
+        height: 62px;
+    }
+
+    .trophy-banner-decoration i {
+        font-size: 27px;
+    }
+
+    .trophy-card {
+        padding: 9px;
+    }
+
+    .trophy-image {
+        width: 48px;
+        height: 48px;
+    }
+
+    .president-symbol {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+    }
+
+    .president-flag {
+        width: 38px;
+        height: 38px;
+    }
+
+}
+
+
+/* =========================
+   08. ORIENTAÇÃO PAISAGEM
+========================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .sidebar {
+        overflow-y: auto;
+    }
+
+    .sidebar-content {
+        padding-top: 15px;
+    }
+
+    .sidebar-brand {
+        min-height: 65px;
+    }
+
+    .sidebar-bottom {
+        padding-top: 12px;
+    }
+
+    .modal-overlay {
+        align-items: flex-start;
+    }
+
+    .modal {
+        margin: 10px auto;
+        max-height: none;
+    }
+
+}
+
+
+/* =========================
+   09. ACESSIBILIDADE
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+
+/* =========================
+   10. PROTEÇÃO CONTRA
+   ESTOURO HORIZONTAL
+========================= */
+
+@media (max-width: 991px) {
+
+    .main-content,
+    .page-container,
+    .page-section {
+        max-width: 100%;
+    }
+
+    .content-card,
+    .table-card,
+    .stat-card,
+    .player-card,
+    .trophy-card {
+        min-width: 0;
+    }
+
+    .data-table {
+        max-width: 100%;
+    }
+
+}

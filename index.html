@@ -1,0 +1,1307 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07150f">
+    <meta name="description" content="Seleção Brasileira de Futebol - Elenco, convocações, estatísticas e conquistas.">
+    <title>Brasil | Seleção Brasileira</title>
+
+    <link rel="icon" type="image/png" href="Assents/Favicon.png">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/responsivo.css">
+    <link rel="stylesheet" href="CSS/animacoes.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    <img src="Assents/Brasil.png" alt="Brasil">
+                </div>
+
+                <div class="brand-info">
+                    <h2>BRASIL</h2>
+                    <span>SELEÇÃO BRASILEIRA</span>
+                </div>
+
+                <button class="sidebar-close" id="closeSidebar" aria-label="Fechar menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+
+                <span class="menu-label">PRINCIPAL</span>
+
+                <nav class="navigation">
+
+                    <button class="nav-item active" data-section="painel">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Painel</span>
+                    </button>
+
+                    <button class="nav-item" data-section="jogadores">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Jogadores</span>
+                        <span class="nav-counter" id="totalPlayers">0</span>
+                    </button>
+
+                    <button class="nav-item" data-section="convocados">
+                        <i class="fa-solid fa-shirt"></i>
+                        <span>Convocados</span>
+                        <span class="nav-counter" id="totalCalled">0</span>
+                    </button>
+
+                    <button class="nav-item" data-section="estatisticas">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <span>Estatísticas</span>
+                    </button>
+
+                    <div class="sidebar-divider"></div>
+
+                    <span class="menu-label">HISTÓRIA</span>
+
+                    <button class="nav-item" data-section="trofeus">
+                        <i class="fa-solid fa-trophy"></i>
+                        <span>Sala de Troféus</span>
+                    </button>
+
+                    <button class="nav-item" data-section="presidencia">
+                        <i class="fa-solid fa-crown"></i>
+                        <span>Presidência</span>
+                    </button>
+
+                </nav>
+
+                <div class="sidebar-bottom">
+
+                    <div class="sidebar-status">
+                        <span class="status-indicator" id="connectionIndicator"></span>
+                        <div>
+                            <strong id="connectionStatus">Conectando...</strong>
+                            <small>Conexão com o servidor</small>
+                        </div>
+                    </div>
+
+                    <button class="admin-access" id="adminAccess">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Área administrativa</span>
+                        <i class="fa-solid fa-chevron-right admin-arrow"></i>
+                    </button>
+
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- FUNDO DO MENU MOBILE -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- BARRA SUPERIOR -->
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="breadcrumb">
+                        <span>Brasil</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <strong id="currentPage">Painel</strong>
+                    </div>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <div class="live-indicator">
+                        <span></span>
+                        AO VIVO
+                    </div>
+
+                    <div class="topbar-divider"></div>
+
+                    <div class="topbar-brand">
+                        <img src="Assents/Brasil.png" alt="Brasil">
+                    </div>
+
+                    <button class="topbar-more" id="topbarMore" aria-label="Mais opções">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+
+                </div>
+
+                <!-- MENU DOS TRÊS PONTINHOS -->
+                <div class="more-menu" id="moreMenu">
+
+                    <button data-section="painel">
+                        <i class="fa-solid fa-house"></i>
+                        Painel
+                    </button>
+
+                    <button data-section="jogadores">
+                        <i class="fa-solid fa-users"></i>
+                        Jogadores
+                    </button>
+
+                    <button data-section="convocados">
+                        <i class="fa-solid fa-shirt"></i>
+                        Convocados
+                    </button>
+
+                    <button data-section="trofeus">
+                        <i class="fa-solid fa-trophy"></i>
+                        Sala de Troféus
+                    </button>
+
+                    <div class="more-divider"></div>
+
+                    <button id="moreAdmin">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Administração
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- ÁREA DAS PÁGINAS -->
+            <div class="page-container">
+
+                <!-- ================================= -->
+                <!-- PAINEL -->
+                <!-- ================================= -->
+
+                <section class="page-section active" id="section-painel">
+
+                    <div class="welcome-banner">
+
+                        <div class="welcome-content">
+
+                            <div class="welcome-tag">
+                                <span class="welcome-dot"></span>
+                                FUTEBOL BRASILEIRO
+                            </div>
+
+                            <h1>SELEÇÃO <span>BRASILEIRA</span></h1>
+
+                            <p>
+                                A história continua. Uma camisa, uma nação,
+                                milhões de brasileiros.
+                            </p>
+
+                            <div class="welcome-president">
+                                <i class="fa-solid fa-crown"></i>
+                                Presidência: <strong>Koee_annaa</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="welcome-image">
+                            <img src="Assents/Brasil.png" alt="Escudo do Brasil">
+                        </div>
+
+                        <div class="banner-decoration"></div>
+
+                    </div>
+
+                    <!-- INDICADORES -->
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="section-eyebrow">VISÃO GERAL</span>
+                            <h2>Central da Seleção</h2>
+                            <p>Acompanhe os principais números da equipe.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="stats-grid">
+
+                        <article class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Jogadores cadastrados</span>
+                                <h3 id="dashboardPlayers">0</h3>
+                                <small>Elenco completo</small>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon yellow">
+                                <i class="fa-solid fa-shirt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Convocados</span>
+                                <h3 id="dashboardCalled">0</h3>
+                                <small>Jogadores selecionados</small>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fa-solid fa-futbol"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Jogos disputados</span>
+                                <h3 id="dashboardGames">0</h3>
+                                <small>Estatísticas acumuladas</small>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon gold">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Títulos conquistados</span>
+                                <h3 id="dashboardTrophies">0</h3>
+                                <small>História da Seleção</small>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- RESUMO DOS CONVOCADOS -->
+                    <div class="content-grid">
+
+                        <div class="content-card dashboard-roster">
+
+                            <div class="card-header">
+                                <div>
+                                    <span class="section-eyebrow">ELENCO</span>
+                                    <h3>Últimos convocados</h3>
+                                </div>
+
+                                <button class="text-button" data-section="convocados">
+                                    Ver todos
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                            <div id="dashboardCalledList" class="dashboard-player-list">
+
+                                <div class="empty-state">
+                                    <i class="fa-solid fa-shirt"></i>
+                                    <h4>Nenhum convocado ainda</h4>
+                                    <p>Os jogadores convocados aparecerão aqui.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- RESUMO DE TROFÉUS -->
+                        <div class="content-card dashboard-trophies">
+
+                            <div class="card-header">
+                                <div>
+                                    <span class="section-eyebrow">CONQUISTAS</span>
+                                    <h3>História em títulos</h3>
+                                </div>
+
+                                <button class="icon-button" data-section="trofeus" aria-label="Ver troféus">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </button>
+                            </div>
+
+                            <div id="dashboardTrophyList" class="dashboard-trophy-list">
+
+                                <div class="empty-state">
+                                    <i class="fa-solid fa-trophy"></i>
+                                    <h4>Galeria vazia</h4>
+                                    <p>As conquistas aparecerão aqui.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ÚLTIMA ATUALIZAÇÃO -->
+                    <div class="last-update-card">
+                        <div class="last-update-icon">
+                            <i class="fa-solid fa-rotate"></i>
+                        </div>
+
+                        <div>
+                            <strong>Informações sincronizadas</strong>
+                            <p id="lastUpdate">Aguardando atualização dos dados...</p>
+                        </div>
+
+                        <span class="sync-badge" id="syncStatus">SINCRONIZANDO</span>
+                    </div>
+
+                </section>
+
+
+                <!-- ================================= -->
+                <!-- JOGADORES -->
+                <!-- ================================= -->
+
+                <section class="page-section" id="section-jogadores">
+
+                    <div class="section-heading page-heading">
+
+                        <div>
+                            <span class="section-eyebrow">ELENCO NACIONAL</span>
+                            <h2>👥 Jogadores</h2>
+                            <p>Gerencie todos os jogadores da Seleção Brasileira.</p>
+                        </div>
+
+                        <div class="heading-actions">
+                            <button class="primary-button admin-only" id="addPlayerBtn">
+                                <i class="fa-solid fa-plus"></i>
+                                Adicionar jogador
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="filter-toolbar">
+
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input
+                                type="search"
+                                id="playerSearch"
+                                placeholder="Pesquisar jogador..."
+                                autocomplete="off"
+                            >
+                        </div>
+
+                        <select id="positionFilter" class="filter-select">
+                            <option value="">Todas as posições</option>
+                            <option value="Goleiro">Goleiros</option>
+                            <option value="Zagueiro">Zagueiros</option>
+                            <option value="Lateral">Laterais</option>
+                            <option value="Meio-campista">Meio-campistas</option>
+                            <option value="Atacante">Atacantes</option>
+                        </select>
+
+                        <select id="callFilter" class="filter-select">
+                            <option value="">Todos os jogadores</option>
+                            <option value="true">Convocados</option>
+                            <option value="false">Não convocados</option>
+                        </select>
+
+                    </div>
+
+                    <div class="roster-summary">
+
+                        <div>
+                            <span>Total de jogadores</span>
+                            <strong id="rosterTotal">0</strong>
+                        </div>
+
+                        <div>
+                            <span>Convocados</span>
+                            <strong id="rosterCalled">0</strong>
+                        </div>
+
+                        <div>
+                            <span>Não convocados</span>
+                            <strong id="rosterNotCalled">0</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="players-grid" id="playersGrid">
+
+                        <div class="empty-state full-width">
+                            <i class="fa-solid fa-users"></i>
+                            <h3>Nenhum jogador cadastrado</h3>
+                            <p>Os jogadores adicionados aparecerão nesta área.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================================= -->
+                <!-- CONVOCADOS -->
+                <!-- ================================= -->
+
+                <section class="page-section" id="section-convocados">
+
+                    <div class="called-banner">
+
+                        <div>
+                            <span class="section-eyebrow">LISTA OFICIAL</span>
+                            <h1>🇧🇷 Convocados</h1>
+                            <p>Os jogadores que representam a Seleção Brasileira.</p>
+                        </div>
+
+                        <div class="called-number">
+                            <strong id="calledCount">0</strong>
+                            <span>CONVOCADOS</span>
+                        </div>
+
+                    </div>
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Elenco convocado</h2>
+                            <p>Estatísticas individuais de cada jogador.</p>
+                        </div>
+                    </div>
+
+                    <div class="called-summary-grid">
+
+                        <div class="called-summary-card">
+                            <i class="fa-solid fa-futbol"></i>
+                            <span>Jogos</span>
+                            <strong id="calledGames">0</strong>
+                        </div>
+
+                        <div class="called-summary-card">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span>Gols</span>
+                            <strong id="calledGoals">0</strong>
+                        </div>
+
+                        <div class="called-summary-card">
+                            <i class="fa-solid fa-handshake"></i>
+                            <span>Assistências</span>
+                            <strong id="calledAssists">0</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="table-card">
+
+                        <div class="card-header">
+                            <div>
+                                <h3>Estatísticas dos convocados</h3>
+                                <p>Desempenho individual dos atletas.</p>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+
+                            <table class="data-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>JOGADOR</th>
+                                        <th>POSIÇÃO</th>
+                                        <th>JOGOS</th>
+                                        <th>GOLS</th>
+                                        <th>ASSISTÊNCIAS</th>
+                                        <th>AÇÕES</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="calledPlayersTable">
+
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="empty-state">
+                                                <i class="fa-solid fa-shirt"></i>
+                                                <h4>Nenhum jogador convocado</h4>
+                                                <p>Convocações aparecerão nesta tabela.</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================================= -->
+                <!-- ESTATÍSTICAS -->
+                <!-- ================================= -->
+
+                <section class="page-section" id="section-estatisticas">
+
+                    <div class="section-heading page-heading">
+
+                        <div>
+                            <span class="section-eyebrow">DESEMPENHO</span>
+                            <h2>📊 Estatísticas</h2>
+                            <p>Números gerais dos jogadores convocados.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="stats-grid statistics-overview">
+
+                        <article class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fa-solid fa-futbol"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Partidas</span>
+                                <h3 id="statisticsGames">0</h3>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Gols</span>
+                                <h3 id="statisticsGoals">0</h3>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon yellow">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Assistências</span>
+                                <h3 id="statisticsAssists">0</h3>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <div class="content-card">
+
+                        <div class="card-header">
+                            <div>
+                                <span class="section-eyebrow">RANKING</span>
+                                <h3>🏅 Destaques individuais</h3>
+                                <p>Principais jogadores em cada categoria.</p>
+                            </div>
+                        </div>
+
+                        <div class="ranking-grid">
+
+                            <div class="ranking-card">
+                                <div class="ranking-heading">
+                                    <i class="fa-solid fa-fire"></i>
+                                    <strong>Artilheiros</strong>
+                                </div>
+                                <div id="topScorers" class="ranking-list">
+                                    <div class="empty-state">
+                                        <p>Nenhum dado disponível.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ranking-card">
+                                <div class="ranking-heading">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    <strong>Garçons</strong>
+                                </div>
+                                <div id="topAssists" class="ranking-list">
+                                    <div class="empty-state">
+                                        <p>Nenhum dado disponível.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ranking-card">
+                                <div class="ranking-heading">
+                                    <i class="fa-solid fa-medal"></i>
+                                    <strong>Mais participações</strong>
+                                </div>
+                                <div id="topGames" class="ranking-list">
+                                    <div class="empty-state">
+                                        <p>Nenhum dado disponível.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================================= -->
+                <!-- SALA DE TROFÉUS -->
+                <!-- ================================= -->
+
+                <section class="page-section" id="section-trofeus">
+
+                    <div class="trophy-banner">
+
+                        <div class="trophy-banner-content">
+                            <span class="section-eyebrow">GLÓRIA E TRADIÇÃO</span>
+                            <h1>🏆 Sala de Troféus</h1>
+                            <p>
+                                Uma história construída com conquistas,
+                                talento e paixão pelo futebol.
+                            </p>
+                        </div>
+
+                        <div class="trophy-banner-decoration">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="section-heading page-heading">
+
+                        <div>
+                            <h2>Galeria de conquistas</h2>
+                            <p>Todos os títulos conquistados pela Seleção.</p>
+                        </div>
+
+                        <button class="primary-button admin-only" id="addTrophyBtn">
+                            <i class="fa-solid fa-plus"></i>
+                            Adicionar título
+                        </button>
+
+                    </div>
+
+                    <div class="trophy-summary">
+
+                        <div>
+                            <i class="fa-solid fa-trophy"></i>
+                            <span>Títulos diferentes</span>
+                            <strong id="trophyTypes">0</strong>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-medal"></i>
+                            <span>Total de conquistas</span>
+                            <strong id="trophyTotal">0</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="trophies-grid" id="trophiesGrid">
+
+                        <div class="empty-state full-width">
+                            <i class="fa-solid fa-trophy"></i>
+                            <h3>Nenhuma conquista cadastrada</h3>
+                            <p>A história de títulos aparecerá aqui.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================================= -->
+                <!-- PRESIDÊNCIA -->
+                <!-- ================================= -->
+
+                <section class="page-section" id="section-presidencia">
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-eyebrow">DIREÇÃO EXECUTIVA</span>
+                            <h2>👑 Presidência</h2>
+                            <p>Responsáveis pela administração da Seleção Brasileira.</p>
+                        </div>
+                    </div>
+
+                    <div class="president-card">
+
+                        <div class="president-symbol">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+
+                        <div class="president-info">
+                            <span>PRESIDENTA DA SELEÇÃO</span>
+                            <h2>Koee_annaa</h2>
+                            <p>
+                                Responsável pela presidência e representação
+                                institucional da Seleção Brasileira.
+                            </p>
+                            <div class="president-status">
+                                <span></span>
+                                Presidência ativa
+                            </div>
+                        </div>
+
+                        <div class="president-flag">
+                            <img src="Assents/Brasil.png" alt="Brasil">
+                        </div>
+
+                    </div>
+
+                    <div class="content-card leadership-card">
+
+                        <div class="card-header">
+                            <div>
+                                <h3>Organização administrativa</h3>
+                                <p>Estrutura de gestão da Seleção.</p>
+                            </div>
+                        </div>
+
+                        <div class="leadership-item">
+                            <div class="leadership-icon">
+                                <i class="fa-solid fa-crown"></i>
+                            </div>
+                            <div>
+                                <strong>Koee_annaa</strong>
+                                <span>Presidência</span>
+                            </div>
+                            <span class="leadership-tag">PRESIDENTA</span>
+                        </div>
+
+                        <div class="leadership-item">
+                            <div class="leadership-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <strong>Lemos</strong>
+                                <span>Administração geral</span>
+                            </div>
+                            <span class="leadership-tag">ADMIN</span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================================= -->
+                <!-- ADMINISTRAÇÃO -->
+                <!-- ================================= -->
+
+                <section class="page-section" id="section-admin">
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-eyebrow">ACESSO RESTRITO</span>
+                            <h2>⚙️ Administração</h2>
+                            <p>Gerenciamento da Seleção Brasileira.</p>
+                        </div>
+
+                        <span class="admin-session-badge" id="adminSessionBadge">
+                            <i class="fa-solid fa-lock"></i>
+                            ACESSO RESTRITO
+                        </span>
+                    </div>
+
+                    <div id="adminLocked" class="admin-locked content-card">
+
+                        <div class="admin-lock-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <h3>Área administrativa protegida</h3>
+
+                        <p>
+                            Entre com suas credenciais para gerenciar
+                            jogadores, estatísticas e troféus.
+                        </p>
+
+                        <button class="primary-button" id="adminLoginBtn">
+                            <i class="fa-solid fa-key"></i>
+                            Acessar administração
+                        </button>
+
+                    </div>
+
+                    <div id="adminDashboard" class="admin-dashboard" hidden>
+
+                        <div class="admin-welcome-card">
+
+                            <div>
+                                <span class="section-eyebrow">PAINEL DE CONTROLE</span>
+                                <h3>Bem-vindo, Lemos! 👋</h3>
+                                <p>Gerencie as informações oficiais da Seleção.</p>
+                            </div>
+
+                            <button class="secondary-button" id="adminLogoutBtn">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                Sair
+                            </button>
+
+                        </div>
+
+                        <div class="admin-actions-grid">
+
+                            <button class="admin-action-card" id="adminAddPlayer">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <strong>Adicionar jogador</strong>
+                                <span>Cadastrar novo atleta.</span>
+                            </button>
+
+                            <button class="admin-action-card" id="adminAddTrophy">
+                                <i class="fa-solid fa-trophy"></i>
+                                <strong>Adicionar título</strong>
+                                <span>Registrar nova conquista.</span>
+                            </button>
+
+                            <button class="admin-action-card" id="adminManageStats">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <strong>Estatísticas</strong>
+                                <span>Atualizar números dos jogadores.</span>
+                            </button>
+
+                        </div>
+
+                        <div class="content-card admin-management">
+
+                            <div class="card-header">
+                                <div>
+                                    <h3>Gerenciamento do elenco</h3>
+                                    <p>Controle os jogadores cadastrados.</p>
+                                </div>
+                            </div>
+
+                            <div id="adminPlayersList"></div>
+
+                        </div>
+
+                        <div class="content-card admin-management">
+
+                            <div class="card-header">
+                                <div>
+                                    <h3>Gerenciamento de títulos</h3>
+                                    <p>Edite ou remova conquistas cadastradas.</p>
+                                </div>
+                            </div>
+
+                            <div id="adminTrophiesList"></div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- RODAPÉ -->
+            <footer class="footer">
+
+                <div class="footer-left">
+                    <img src="Assents/Brasil.png" alt="Brasil">
+                    <div>
+                        <strong>SELEÇÃO BRASILEIRA</strong>
+                        <span>Uma nação, uma paixão. 🇧🇷</span>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <span>Presidência: Koee_annaa</span>
+                    <span>© <span id="currentYear">2026</span> Brasil</span>
+                </div>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- MODAL DE JOGADOR -->
+    <!-- ================================= -->
+
+    <div class="modal-overlay" id="playerModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+                <div>
+                    <span class="section-eyebrow">ELENCO</span>
+                    <h3 id="playerModalTitle">Adicionar jogador</h3>
+                </div>
+
+                <button class="modal-close" data-close="playerModal" aria-label="Fechar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="playerForm">
+
+                <input type="hidden" id="playerId">
+
+                <div class="form-group">
+                    <label for="playerName">Nome do jogador</label>
+                    <input
+                        type="text"
+                        id="playerName"
+                        placeholder="Ex: Vinícius Júnior"
+                        maxlength="70"
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="playerPosition">Posição</label>
+                        <select id="playerPosition" required>
+                            <option value="">Selecione</option>
+                            <option value="Goleiro">Goleiro</option>
+                            <option value="Zagueiro">Zagueiro</option>
+                            <option value="Lateral">Lateral</option>
+                            <option value="Meio-campista">Meio-campista</option>
+                            <option value="Atacante">Atacante</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="playerNumber">Camisa</label>
+                        <input type="number" id="playerNumber" min="1" max="99" placeholder="Ex: 10">
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="playerGames">Jogos</label>
+                        <input type="number" id="playerGames" min="0" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="playerGoals">Gols</label>
+                        <input type="number" id="playerGoals" min="0" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="playerAssists">Assistências</label>
+                        <input type="number" id="playerAssists" min="0" value="0">
+                    </div>
+
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="secondary-button" data-close="playerModal">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="primary-button">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Salvar jogador
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- MODAL DE ESTATÍSTICAS -->
+    <!-- ================================= -->
+
+    <div class="modal-overlay" id="statsModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+                <div>
+                    <span class="section-eyebrow">DESEMPENHO</span>
+                    <h3>Atualizar estatísticas</h3>
+                </div>
+
+                <button class="modal-close" data-close="statsModal" aria-label="Fechar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="statsForm">
+
+                <input type="hidden" id="statsPlayerId">
+
+                <div class="form-group">
+                    <label>Jogador</label>
+                    <div class="selected-player" id="statsPlayerName">Jogador selecionado</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="statsGames">Jogos</label>
+                    <input type="number" id="statsGames" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="statsGoals">Gols</label>
+                    <input type="number" id="statsGoals" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="statsAssists">Assistências</label>
+                    <input type="number" id="statsAssists" min="0" required>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="secondary-button" data-close="statsModal">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="primary-button">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Atualizar dados
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- MODAL DE TROFÉUS -->
+    <!-- ================================= -->
+
+    <div class="modal-overlay" id="trophyModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+                <div>
+                    <span class="section-eyebrow">HISTÓRIA</span>
+                    <h3 id="trophyModalTitle">Adicionar título</h3>
+                </div>
+
+                <button class="modal-close" data-close="trophyModal" aria-label="Fechar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="trophyForm">
+
+                <input type="hidden" id="trophyId">
+
+                <div class="form-group">
+                    <label for="trophyName">Nome da competição</label>
+                    <input
+                        type="text"
+                        id="trophyName"
+                        placeholder="Ex: Copa América"
+                        maxlength="80"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="trophyImage">Imagem do troféu</label>
+                    <input
+                        type="file"
+                        id="trophyImage"
+                        accept="image/png,image/jpeg,image/webp"
+                    >
+                    <small>Selecione a imagem ou o logo da competição.</small>
+                    <div id="trophyImagePreview" class="image-preview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="trophyQuantity">Quantidade de conquistas</label>
+                    <input
+                        type="number"
+                        id="trophyQuantity"
+                        min="1"
+                        value="1"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="trophySeasons">Temporadas conquistadas</label>
+                    <input
+                        type="text"
+                        id="trophySeasons"
+                        placeholder="Ex: S1, S4, S5, S8..."
+                        required
+                    >
+                    <small>Separe as temporadas por vírgula.</small>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="secondary-button" data-close="trophyModal">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="primary-button">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Salvar título
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- MODAL DE LOGIN ADMINISTRATIVO -->
+    <!-- ================================= -->
+
+    <div class="modal-overlay" id="adminModal">
+
+        <div class="modal admin-modal">
+
+            <div class="admin-modal-symbol">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div class="modal-header centered">
+                <div>
+                    <span class="section-eyebrow">ACESSO RESTRITO</span>
+                    <h3>Administração</h3>
+                    <p>Entre com suas credenciais administrativas.</p>
+                </div>
+
+                <button class="modal-close" data-close="adminModal" aria-label="Fechar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="adminLoginForm">
+
+                <div class="form-group">
+                    <label for="adminUsername">Usuário</label>
+
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-user"></i>
+                        <input
+                            type="text"
+                            id="adminUsername"
+                            placeholder="Nome de usuário"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="adminPassword">Senha</label>
+
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-lock"></i>
+                        <input
+                            type="password"
+                            id="adminPassword"
+                            placeholder="Sua senha"
+                            autocomplete="current-password"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <p id="adminLoginError" class="form-error" hidden></p>
+
+                <button type="submit" class="primary-button full-button">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    Entrar
+                </button>
+
+            </form>
+
+            <div class="admin-security-note">
+                <i class="fa-solid fa-lock"></i>
+                Área exclusiva para administração.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- MODAL DE CONFIRMAÇÃO -->
+    <!-- ================================= -->
+
+    <div class="modal-overlay" id="confirmModal">
+
+        <div class="modal confirm-modal">
+
+            <div class="confirm-icon">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+
+            <h3 id="confirmTitle">Confirmar ação</h3>
+
+            <p id="confirmMessage">
+                Tem certeza de que deseja continuar?
+            </p>
+
+            <div class="modal-actions">
+
+                <button class="secondary-button" id="cancelConfirm">
+                    Cancelar
+                </button>
+
+                <button class="danger-button" id="confirmAction">
+                    Confirmar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- NOTIFICAÇÕES -->
+    <!-- ================================= -->
+
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+
+    <!-- CARREGAMENTO -->
+    <div class="loading-screen" id="loadingScreen">
+
+        <div class="loading-content">
+            <img src="Assents/Brasil.png" alt="Brasil">
+            <div class="loading-spinner"></div>
+            <h3>SELEÇÃO BRASILEIRA</h3>
+            <p>Carregando informações...</p>
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- SCRIPTS -->
+    <!-- ================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="JS/supabase.js" defer></script>
+    <script src="JS/script.js" defer></script>
+    <script src="JS/painel.js" defer></script>
+    <script src="JS/jogadores.js" defer></script>
+    <script src="JS/estatisticas.js" defer></script>
+    <script src="JS/temporadas.js" defer></script>
+    <script src="JS/trofeus.js" defer></script>
+    <script src="JS/admin.js" defer></script>
+
+</body>
+</html>
